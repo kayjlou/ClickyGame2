@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Card, CardImg } from 'reactstrap'
 
 const imageDiv = {
   width: '70%',
@@ -6,9 +7,7 @@ const imageDiv = {
   border: '5px solid pink',
   textAlign: 'center'
 }
-const images = {
-  padding: '2px'
-}
+
 class Cards extends Component {
   render() {
     const { images, handleClick } = this.props
@@ -17,12 +16,13 @@ class Cards extends Component {
       <>
         <div style={imageDiv}>
           {images.map(image =>
-            <button onClick={handleClick}>
-              <img style= src={image} alt={image}></img>
-            </button>
+            <Card width="30%">
+              <CardImg top width="20%"
+                src={image} alt={image} onClick={handleClick}
+              />
+            </Card>
           )}
         </div>
-
       </>
     )
   }
