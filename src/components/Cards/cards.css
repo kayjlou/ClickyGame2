@@ -1,0 +1,25 @@
+.images {
+  height: 120px;
+  width: 160px;
+  object-fit: cover;
+  /* padding: 8px; */
+  /* border: 2px red solid; */
+  margin: 12px;
+  box-shadow: 0 10px 10px 0 #1c1c1c;
+  transition: all 0.25s ease-in-out;
+}
+
+.images:hover {
+  box-shadow: 0 10px 10px 0 transparent;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+}
+
+#imageDiv {
+  margin: auto;
+  width: 70%;
+  text-align: center;
+}
