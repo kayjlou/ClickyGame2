@@ -1,6 +1,5 @@
 import React from 'react';
 import { Jumbotron, Container } from 'reactstrap';
-import './Header.css'
 
 const jumboStyle = {
   width: '70%',
