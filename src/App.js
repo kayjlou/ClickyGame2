@@ -2,14 +2,35 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
 import Cards from './components/Cards'
+// const Ronaldo = require('./assets/images/Ronaldo.jpeg')
+import Ronaldo from './assets/images/Ronaldo.jpeg'
+import Messi from './assets/images/Messi.jpeg'
+import Neymar from './assets/images/Neymar.jpeg'
+import Mbappe from './assets/images/Mbappe.jpeg'
+import Beckham from './assets/images/Beckham.jpeg'
+import Donovan from './assets/images/Donovan.jpeg'
+import Suarez from './assets/images/Suarez.jpeg'
+import Bale from './assets/images/Bale.jpeg'
+import Salah from './assets/images/Salah.jpeg'
+import Zlatan from './assets/images/Zlatan.jpeg'
+import Ronaldinho from './assets/images/Ronaldinho.jpeg'
+import Chicharito from './assets/images/Chicharito.jpeg'
 
 class App extends Component {
   state = {
     imgArray: [
-      "https://s5.postimg.cc/cxo14dtgj/Puppy1.jpg",
-      "https://s5.postimg.cc/a3kvqym5f/Puppy2.jpg",
-      "https://s5.postimg.cc/42n6tvcdv/Puppy3.jpg",
-      "https://s5.postimg.cc/qrcdtg1hf/Puppy4.jpg"
+      Donovan,
+      Suarez,
+      Bale,
+      Salah,
+      Zlatan,
+      Ronaldinho,
+      Chicharito,
+      Beckham,
+      Mbappe,
+      Neymar,
+      Messi,
+      Ronaldo
     ],
     clickedImages: [],
     guesses: 0,
