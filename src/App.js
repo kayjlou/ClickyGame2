@@ -14,7 +14,8 @@ class App extends Component {
     clickedImages: [],
     guesses: 0,
     score: 0,
-    message: `Click any image to get started! Just don't click them twice!!`
+    message: `Click any image to get started! Just don't click them twice!!`,
+    topScore: 0
   }
 
   //Shuffles array
@@ -44,30 +45,30 @@ class App extends Component {
     let clickedImg = event.target.src
     console.log(`Clicked image is  + ${clickedImg}`)
 
-    const clickedImages = this.state.clickedImages
+    // const clickedImages = this.state.clickedImages
+    this.checkArray(clickedImg)
 
 
-    if (clickedImages.indexOf(clickedImg === -1)) {
+  }
+
+  checkArray = image => {
+    if (this.state.clickedImages.indexOf(image) === -1) {
       this.setState({
-        clickedImages: [clickedImages, clickedImg],
+        clickedImages: [...this.state.clickedImages, image],
         message: `Keep going! `,
         score: this.state.score + 1,
-        guesses: this.state.guesses + 1
+        guesses: this.state.guesses + 1,
+        topScore: this.state.score >= this.state.topScore ? this.state.score : this.state.topScore
 
       })
-      console.log(this.state.clickedImages)
-      console.log("keep going")
-
-
-
-    } else if (clickedImages.indexOf(clickedImg > -1)) {
+    } else {
       console.log("you fail")
       this.setState({
         clickedImages: [],
-        message: `You lost!!! `,
+        message: `You lost!!! Click to start again!!`,
         score: 0,
-        guesses: 0
-
+        guesses: 0,
+        topScore: this.state.score >= this.state.topScore ? this.state.score : this.state.topScore
       })
     }
   }
@@ -78,9 +79,13 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header message={this.state.message} score={this.state.score} guesses={this.state.guesses} />
-        <h3>Guesses: {this.state.guesses}</h3>
-        <h3>Score: {this.state.score}</h3>
+        <Header />
+        <div className='scoreDiv'>
+          <h3>Guesses: {this.state.guesses}</h3>
+          <h3>Score: {this.state.score}</h3>
+          <h3>{this.state.message}</h3>
+          <h3>Top Score: {this.state.topScore}</h3>
+        </div>
         <Cards
           images={this.state.imgArray}
           handleClick={this.handleClick} />
