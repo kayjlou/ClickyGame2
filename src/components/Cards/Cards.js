@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
-import { Card, CardImg } from 'reactstrap'
+import './cards.css'
 
-const imageDiv = {
-  width: '70%',
-  margin: 'auto',
-  border: '5px solid pink',
-  textAlign: 'center'
-}
 
 class Cards extends Component {
   render() {
@@ -14,15 +8,14 @@ class Cards extends Component {
 
     return (
       <>
-        <div style={imageDiv}>
+        <div id='imageDiv'>
           {images.map(image =>
-            <Card width="30%">
-              <CardImg top width="20%"
-                src={image} alt={image} onClick={handleClick}
-              />
-            </Card>
+
+            <img src={image} alt={image} className='images' onClick={handleClick}></img>
+
           )}
         </div>
+
       </>
     )
   }
