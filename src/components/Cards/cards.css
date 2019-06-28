@@ -1,13 +1,13 @@
 .images {
   border-radius: 50%;
-  height: 160px;
-  width: 160px;
+  height: 130px;
+  width: 130px;
   object-fit: cover;
   /*padding: 8px;
   */
   /*border: 2px red solid;
   */
-  margin: 12px;
+  margin: 10px;
   box-shadow: 0 10px 10px 0 #1c1c1c;
   transition: all 0.25s ease-in-out;
   -webkit-border-radius: 50%;
@@ -26,7 +26,9 @@
 }
 
 #imageDiv {
-  margin: auto;
-  width: 70%;
+  position: absolute;
+  margin: 10%;
+  margin-top: 15px;
+  /* width: 75%; */
   text-align: center;
 }
