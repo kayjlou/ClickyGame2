@@ -15,6 +15,8 @@ import Salah from './assets/images/Salah.jpeg'
 import Zlatan from './assets/images/Zlatan.jpeg'
 import Ronaldinho from './assets/images/Ronaldinho.jpeg'
 import Chicharito from './assets/images/Chicharito.jpeg'
+import { Shake } from 'reshake'
+import './components/Cards/cards.css'
 
 class App extends Component {
   state = {
@@ -36,7 +38,8 @@ class App extends Component {
     guesses: 0,
     score: 0,
     message: `Click any image to get started! Just don't click them twice!!`,
-    topScore: 0
+    topScore: 0,
+    correct: true
   }
 
   //Shuffles array
@@ -56,6 +59,12 @@ class App extends Component {
     return array
   }
 
+  // MyShake = () => (
+  //   <Shake h={10} v={0} r={3}>
+  //     <Cards />
+  //   </Shake>
+  // )
+
   //Function to handle click
   handleClick = event => {
     //Shuffles images
@@ -64,12 +73,45 @@ class App extends Component {
     this.setState({ imgArray })
     //Set guessedimage array copy to check if it has been guessed
     let clickedImg = event.target.src
-    console.log(`Clicked image is  + ${clickedImg}`)
-
-    // const clickedImages = this.state.clickedImages
     this.checkArray(clickedImg)
 
 
+  }
+
+
+
+  handleShake = () => {
+    if (this.state.correct) {
+      return (
+        <>
+          {this.state.imgArray.map(image =>
+            <img src={image} alt={image} className='images' onClick={this.handleClick}></img>
+          )
+          }
+        </>
+      )
+    }
+    else {
+      return (
+        <>
+          <Shake
+            h={5}
+            v={4}
+            dur={200}
+            q={1}
+            freez={false}
+            fixed={true}
+            fixedStop={false}>
+            {this.state.imgArray.map(image =>
+              <img src={image} alt={image} className='images' onClick={this.handleClick}></img>
+            )}
+          </Shake>
+
+        </>
+      )
+
+
+    }
   }
 
   checkArray = image => {
@@ -79,7 +121,8 @@ class App extends Component {
         message: `Keep going! `,
         score: this.state.score + 1,
         guesses: this.state.guesses + 1,
-        topScore: this.state.score >= this.state.topScore ? this.state.score : this.state.topScore
+        topScore: this.state.score >= this.state.topScore ? this.state.score : this.state.topScore,
+        correct: true
 
       })
     } else {
@@ -89,9 +132,13 @@ class App extends Component {
         message: `You lost!!! Click to start again!!`,
         score: 0,
         guesses: 0,
-        topScore: this.state.score >= this.state.topScore ? this.state.score : this.state.topScore
+        topScore: this.state.score >= this.state.topScore ? this.state.score : this.state.topScore,
+        correct: false
       })
+
+
     }
+
   }
 
 
@@ -106,9 +153,12 @@ class App extends Component {
           <h4>Guesses: {this.state.guesses} Score: {this.state.score}</h4>
           <h4>{this.state.message}</h4>
         </div>
-        <Cards
+        <div id='imageDiv'>
+          {this.handleShake()}
+        </div>
+        {/* <Cards
           images={this.state.imgArray}
-          handleClick={this.handleClick} />
+          handleClick={this.handleClick} /> */}
         <img className='soccer' src={soccer} alt='ball'></img>
       </>
 
