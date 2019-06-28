@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
 import Cards from './components/Cards'
-// const Ronaldo = require('./assets/images/Ronaldo.jpeg')
+import soccer from './assets/images/soccer.png'
 import Ronaldo from './assets/images/Ronaldo.jpeg'
 import Messi from './assets/images/Messi.jpeg'
 import Neymar from './assets/images/Neymar.jpeg'
@@ -102,14 +102,14 @@ class App extends Component {
       <>
         <Header />
         <div className='scoreDiv'>
-          <h3>Guesses: {this.state.guesses}</h3>
-          <h3>Score: {this.state.score}</h3>
-          <h3>{this.state.message}</h3>
           <h3>Top Score: {this.state.topScore}</h3>
+          <h4>Guesses: {this.state.guesses} Score: {this.state.score}</h4>
+          <h4>{this.state.message}</h4>
         </div>
         <Cards
           images={this.state.imgArray}
           handleClick={this.handleClick} />
+        <img className='soccer' src={soccer} alt='ball'></img>
       </>
 
     )
