@@ -5,8 +5,9 @@ const jumboStyle = {
   width: '70%',
   margin: 'auto',
   marginTop: '20px',
-  border: '5px solid gray',
-  textAlign: 'center'
+  // border: '5px solid gray',
+  textAlign: 'center',
+  fontFamily: 'Fjalla One'
 }
 
 const Header = (props) => {

@@ -150,7 +150,7 @@ class App extends Component {
         <Header />
         <div className='scoreDiv'>
           <h3>Top Score: {this.state.topScore}</h3>
-          <h4>Guesses: {this.state.guesses} Score: {this.state.score}</h4>
+          <h4>Guesses: {this.state.guesses}          Score: {this.state.score}</h4>
           <h4>{this.state.message}</h4>
         </div>
         <div id='imageDiv'>
