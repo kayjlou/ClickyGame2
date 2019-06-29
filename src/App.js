@@ -149,10 +149,9 @@ class App extends Component {
       <>
         <Header />
         <div className='scoreDiv'>
-          <h3>High Score: {this.state.topScore}</h3>
-          <h4>Guesses: {this.state.guesses}</h4>
-          <h4>Score: {this.state.score}</h4>
-          <h4>{this.state.message}</h4>
+          <h2>High Score: {this.state.topScore}</h2>
+          <h3>Score: {this.state.score}</h3>
+          <h3>{this.state.message}</h3>
         </div>
         <div id='imageDiv'>
           {this.handleShake()}

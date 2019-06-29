@@ -3,13 +3,16 @@
 }
 
 .scoreDiv {
-  padding: 2px;
-  width: 45%;
+  padding: 3px;
+  background-image: url('./assets/images/field.png');
+  /* background-size: cover; */
+  background-position: center;
+  width: 50%;
   margin: auto;
   margin-top: 35px;
   margin-bottom: 25px;
   text-align: center;
-  background-color: green;
+  /* background-color: green; */
   opacity: .7;
   border-radius: 20px;
   -webkit-border-radius: 20px;
